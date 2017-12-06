@@ -1,7 +1,7 @@
 import {$, jQuery} from 'jquery';
 window.$ = $;
 window.jQuery = jQuery;
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 var pluginName = "radialtree";
 /**
