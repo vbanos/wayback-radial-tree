@@ -1,5 +1,6 @@
-var gulp    = require('gulp'),
-$           = require('gulp-load-plugins')(),
+var gulp    = require('gulp');
+var babel   = require('gulp-babel');
+$           = require('gulp-load-plugins')();
 meta        = require('./package.json');
 
 var argv    = require('minimist')(process.argv.slice(2));
@@ -57,6 +58,7 @@ gulp.task('sass', function() {
 
 gulp.task('scripts', function() {
 return gulp.src([jsDir + '*.js'])
+    .pipe(babel({presets: ['env']}))
     .pipe($.plumber({ errorHandler: onError }))
     // .pipe(gulp.dest(distDir + "/js")) //
     .pipe($.umd(umdDeps))
